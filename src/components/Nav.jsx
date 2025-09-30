@@ -10,9 +10,9 @@ const Nav = () => {
 
   const navItems = [
   { name: 'Home', href: "http://localhost:5173/" },
-  { name: 'About', href: "http://127.0.0.1:5000/about" },
-  { name: 'Service', href: "http://127.0.0.1:5000/service" },
-  { name: 'Contact Us', href: 'http://127.0.0.1:5000/contact' }
+  { name: 'About', href: "https://edstack.onrender.com/about" },
+  { name: 'Service', href: "https://edstack.onrender.com/service" },
+  { name: 'Contact Us', href: 'https://edstack.onrender.com/contact' }
 ];
 
 

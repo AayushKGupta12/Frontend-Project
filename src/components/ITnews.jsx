@@ -12,7 +12,7 @@ const ITnews = () =>{
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://127.0.0.1:5000/latest-news");
+      const response = await fetch("https://edstack.onrender.com/latest-news");
       const jsonData = await response.json();
       setArticles(jsonData.results || []);
     } catch (error) {

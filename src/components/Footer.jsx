@@ -11,12 +11,12 @@ export function Footer() {
             <h3 className="text-lg font-semibold text-slate-800">Company</h3>
             <ul className="space-y-3">
               <li>
-                <a href="http://127.0.0.1:5000/about" className="text-slate-900 hover:text-emerald-900 font-medium transition-colors duration-200 text-sm">
+                <a href="https://edstack.onrender.com/about" className="text-slate-900 hover:text-emerald-900 font-medium transition-colors duration-200 text-sm">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="http://127.0.0.1:5000/contact" className="text-slate-900 hover:text-emerald-900 font-medium transition-colors duration-200 text-sm">
+                <a href="https://edstack.onrender.com/contact" className="text-slate-900 hover:text-emerald-900 font-medium transition-colors duration-200 text-sm">
                   Contact Us
                 </a>
               </li>
@@ -36,7 +36,7 @@ export function Footer() {
             </ul>
             <ul className="space-y-3">
               <li>
-                <a href="http://127.0.0.1:5000/service" className="text-slate-900 hover:text-emerald-900 font-medium transition-colors duration-200 text-sm">
+                <a href="https://edstack.onrender.com/service" className="text-slate-900 hover:text-emerald-900 font-medium transition-colors duration-200 text-sm">
                   Services 
                 </a>
               </li>
