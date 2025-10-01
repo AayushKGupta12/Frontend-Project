@@ -50,3 +50,5 @@ export function Hero({ src, mobileSrc, alt = "Hero Image", maxHeight = "600px" }
     </div>
   );
 }
+
+export default Hero;

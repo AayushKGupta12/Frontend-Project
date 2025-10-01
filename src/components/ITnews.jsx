@@ -47,7 +47,7 @@ const ITnews = () =>{
                 <img
                   className="w-full h-[140px] object-cover rounded-xl"
                   alt={item.title || "Card Image"}
-                  src={item.image_url || "https://via.placeholder.com/260x140"}
+                  src={item.image_url || "https://raw.githubusercontent.com/AayushKGupta12/Frontend-Project/refs/heads/main/edstack.png"}
                 />
                 <div className="py-3 flex-1 flex flex-col">
                   <h2 className="font-medium line-clamp-5 flex-1 text-sm text-gray-900">{item.title}</h2>

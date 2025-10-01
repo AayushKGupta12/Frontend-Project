@@ -4,8 +4,6 @@ import { useState } from 'react';
 import Nav from './components/Nav';
 import Blog from './components/Blog';
 import Jobs from './components/Jobs';
-// import Roadmap from './components/Roadmap'; // Uncomment when ready
-
 import Newsapp from './components/ITnews';
 import Technology from './components/Technology';
 import Health from './components/Health';
@@ -24,11 +22,11 @@ import SoftwareEng from './components/SoftwareEng';
 import MobileApp from './components/MobileApp';
 import DatabaseAdmin from './components/DatabaseAdmin';
 import Footer from './components/Footer';
-import { Hero } from './components/hero';
 import pic1 from "./assets/pic1.png";
 import pic2 from "./assets/pic2.png";
 import Science from './components/Science';
 import Stock from './components/Stock';
+import Hero from './components/Hero';
 
 function App() {
   const [activeSection, setActiveSection] = useState("Jobs");
