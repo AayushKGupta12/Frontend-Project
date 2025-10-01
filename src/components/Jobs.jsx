@@ -199,9 +199,6 @@ Explore more at: https://stackbit.vercel.app`
 
                             {/* Bottom Section */}
                             <div className="flex items-center justify-between">
-                              <div className="text-xs text-gray-500">
-                                {job.Date_of_publish}
-                              </div>
                               <div className="flex items-center space-x-3">
                                 <a
                                   href={job.Link || "#"}
