@@ -27,6 +27,11 @@ import pic2 from "./assets/pic2.png";
 import Science from './components/Science';
 import Stock from './components/Stock';
 import Hero from './components/Hero';
+import Ann from './components/Ann';
+import Job1 from './components/Job1';
+import Job2 from './components/Job2';
+import Job3 from './components/Job3';
+import Job4 from './components/Job4';
 
 function App() {
   const [activeSection, setActiveSection] = useState("Jobs");
@@ -72,13 +77,9 @@ function App() {
       </div>
 
 
-      <div>
-
-      </div>
-
       {/* Section Rendering */}
       {activeSection === "Jobs" && (
-        <div className="mx-6 my-10">
+        <div className="mx-2 my-8">
 
           <Hero
             src={pic1}
@@ -86,7 +87,16 @@ function App() {
             maxHeight="300px"
           />
           
-          <Jobs />
+          <div className='my-6'>
+            <Jobs/>
+            <Job1/>
+            <Job2/>
+            <Job3/>
+            <Job4/>
+          </div>
+          
+
+          
         </div>
       )}
 
