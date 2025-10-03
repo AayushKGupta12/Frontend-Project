@@ -60,8 +60,8 @@ Explore more at: https://stackbit.vercel.app`
 
   return (
     <div>
-      <div className="bg-gray-100 mx-4 sm:p-2 sm:mx-1 md:mx-35 mt-8 sm:mt-8 rounded-3xl sm:rounded-4xl" >
-        <div className="px-1 py-4 sm:px-4 sm:py-6 max-w-7xl mx-auto">
+      <div className="bg-gray-100 sm:p-1 sm:mx-1 md:mx-35 mt-8 sm:mt-8 rounded-3xl sm:rounded-4xl" >
+        <div className="px-1 py-4 sm:px-4 sm:py- mx-auto">
           {hasContent ? (
             <div className="mx-2 grid gap-4 sm:gap-6 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
               {jobs.map((job, index) => (
@@ -112,38 +112,42 @@ Explore more at: https://stackbit.vercel.app`
                             {job.Stipend}
                           </div>
                           <div className="text-xs text-gray-400">
-                            {job.Date_of_publish}
+                            {job.Date_of_publish || "Fews Days Left"}
                           </div>
                         </div>
                       </div>
+                      
 
                       {/* Action Buttons */}
-                      <div className="px-4 py-3 bg-gray-50 flex space-x-2">
-                        <a
-                          href={job.Link || "#"}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 py-2.5 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-lg text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-300 text-center"
-                        >
-                          Apply Now
-                        </a>
-                        <a
-                          href={getWhatsappLink(job)}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="p-2.5 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M20.52 3.478A11.786 11.786 0 0012.017 0C5.28 0 .007 5.272.007 12.001c0 2.118.553 4.192 1.604 6.016L.043 24l6.092-1.59a11.913 11.913 0 005.883 1.498h.006c6.733 0 12.005-5.273 12.005-12.002 0-3.194-1.246-6.198-3.53-8.428zm-8.5 19.4h-.005a10.429 10.429 0 01-5.34-1.537l-.383-.227-3.619.944.964-3.527-.25-.388A10.461 10.461 0 012.036 12c0-5.759 4.687-10.447 10.471-10.447a10.422 10.422 0 017.381 3.058A10.35 10.35 0 0122.463 12c0 5.76-4.688 10.447-10.442 10.447zM17.66 14.965c-.245-.124-1.45-.715-1.674-.797-.224-.082-.387-.124-.55.124-.164.247-.632.796-.775.961-.143.164-.285.184-.53.062-.245-.124-1.032-.381-1.967-1.216-.727-.648-1.217-1.449-1.364-1.693-.143-.247-.015-.381.108-.505.111-.109.248-.283.372-.424.125-.14.166-.247.25-.413.082-.164.041-.309-.02-.433-.062-.124-.55-1.333-.754-1.822-.198-.477-.398-.412-.55-.42a4.36 4.36 0 00-.468-.008c-.161.018-.42.062-.64.309-.22.247-.84.823-.84 2a3.363 3.363 0 00.69 1.978c.084.112 1.178 1.802 2.856 2.45 1.678.644 1.678.429 1.981.404.304-.024.963-.39 1.099-.766.135-.377.135-.717.095-.786-.041-.062-.148-.101-.393-.225z"></path>
-                          </svg>
-                        </a>
-                      </div>
+                      <div className="px-4 py-3 bg-gray-50 flex gap-2 w-full">
+                        
+  <a
+    href={job.Link || "#"}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex-1 px-4 py-2 bg-gradient-to-r from-blue-700 to-blue-500 hover:from-blue-600 hover:to-blue-700 text-white rounded-lg text-xl font-semibold shadow-md text-center"
+    onClick={(e) => e.stopPropagation()}
+  >
+    Apply Now
+  </a>
+  <a
+    href={getWhatsappLink(job)}
+    target="_blank"
+    rel="noopener noreferrer"
+    onClick={(e) => e.stopPropagation()}
+  >
+    <img
+      src="https://img.logo.dev/whatsapp.com?token=pk_djKZ3gIOQqyja8btgxBpBA"
+      alt="WhatsApp"
+      width={45}
+      height={40}
+      className="rounded-xl"
+    />
+    <div>
+</div>
+    
+  </a>
+</div>
                     </div>
 
                     {/* Desktop Layout - Side by side */}
@@ -199,12 +203,15 @@ Explore more at: https://stackbit.vercel.app`
 
                             {/* Bottom Section */}
                             <div className="flex items-center justify-between">
+                              <div className="text-xs text-gray-500">
+                                {job.Date_of_publish || "Few days left"}
+                              </div>
                               <div className="flex items-center space-x-3">
                                 <a
                                   href={job.Link || "#"}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-lg text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
+                                  className="px-4 py-2 bg-gradient-to-r from-blue-700 to-blue-500 hover:from-blue-600 hover:to-blue-700 text-white rounded-lg text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
                                   onClick={(e) => e.stopPropagation()}
                                 >
                                   Apply
@@ -219,12 +226,13 @@ Explore more at: https://stackbit.vercel.app`
                                   <img
                                     src="https://img.logo.dev/whatsapp.com?token=pk_djKZ3gIOQqyja8btgxBpBA"
                                     alt="WhatsApp"
-                                    width={35}
-                                    height={35}
-                                    className="mr-1 rounded-4xl"
+                                    width={45}
+                                    height={40}
+                                    className="rounded-xl"
                                   />
                                   
                                 </a>
+
                               </div>
                             </div>
                           </div>
