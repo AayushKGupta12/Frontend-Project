@@ -11,7 +11,7 @@ function Jobs() {
   const fetchData = async () => {
     try {
       setLoading(true);
-      const response = await fetch("https://edstack.onrender.com/company-news");
+      const response = await fetch("http://127.0.0.1:5000/company-news");
       const jsonData = await response.json();
 
       const companyJobs = Object.keys(jsonData).map((company) => ({
@@ -30,25 +30,25 @@ function Jobs() {
   const hasContent = jobs.length > 0;
 
   const getWhatsappLink = (job) => {
-  const msg = `*Exciting Opportunity!*
-   
-*${job.company}* is hiring!  
-They’ve opened up _off-campus recruitment_  
+    const msg = `*Exciting Opportunity!*
+       
+*${job.company}* is hiring!   
+They’ve opened up _off-campus recruitment_   
 
-🔗 Visit their site: ${job.Link || "https://stackbit.vercel.app"}  
+🔗 Visit their site: ${job.Link || "https://edstack.netlify.app"}   
 
-━━━━━━━━━━━━━━━━━━━━━━━  
--> Stay updated with:  
-\t *IT Job Updates*  
-\t *Internship Opportunities*  
-\t *Career Roadmaps*  
-\t *Tech & IT News*  
-━━━━━━━━━━━━━━━━━━━━━━━  
+━━━━━━━━━━━━━━━━━━━━━━━   
+-> Stay updated with:   
+\t *IT Job Updates*   
+\t *Internship Opportunities*   
+\t *Career Roadmaps*   
+\t *Tech & IT News*   
+━━━━━━━━━━━━━━━━━━━━━━━   
 
-Explore more at: https://stackbit.vercel.app`
+Explore more at: https://edstack.netlify.app`;
 
-  return `https://wa.me/?text=${encodeURIComponent(msg)}`;
-};
+    return `https://wa.me/?text=${encodeURIComponent(msg)}`;
+  };
 
   if (loading) {
     return (
@@ -60,7 +60,8 @@ Explore more at: https://stackbit.vercel.app`
 
   return (
     <div>
-      <div className="bg-gray-100 sm:p-1 sm:mx-1 md:mx-35 mt-8 sm:mt-8 rounded-3xl sm:rounded-4xl" >
+      <div className="bg-emerald-100 mx-1 sm:mx-3 md:mx-6 lg:mx-10 mt-8 sm:mt-8 rounded-3xl sm:rounded-4xl">
+
         <div className="px-1 py-4 sm:px-4 sm:py- mx-auto">
           {hasContent ? (
             <div className="mx-2 grid gap-4 sm:gap-6 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
@@ -111,43 +112,40 @@ Explore more at: https://stackbit.vercel.app`
                           <div className="font-bold text-green-600 text-sm">
                             {job.Stipend}
                           </div>
-                          <div className="text-xs text-gray-400">
+                          <div className="text-2xs text-gray-400">
                             {job.Date_of_publish || "Fews Days Left"}
                           </div>
                         </div>
                       </div>
                       
-
                       {/* Action Buttons */}
                       <div className="px-4 py-3 bg-gray-50 flex gap-2 w-full">
-                        
-  <a
-    href={job.Link || "#"}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex-1 px-4 py-2 bg-gradient-to-r from-blue-700 to-blue-500 hover:from-blue-600 hover:to-blue-700 text-white rounded-lg text-xl font-semibold shadow-md text-center"
-    onClick={(e) => e.stopPropagation()}
-  >
-    Apply Now
-  </a>
-  <a
-    href={getWhatsappLink(job)}
-    target="_blank"
-    rel="noopener noreferrer"
-    onClick={(e) => e.stopPropagation()}
-  >
-    <img
-      src="https://img.logo.dev/whatsapp.com?token=pk_djKZ3gIOQqyja8btgxBpBA"
-      alt="WhatsApp"
-      width={45}
-      height={40}
-      className="rounded-xl"
-    />
-    <div>
-</div>
-    
-  </a>
-</div>
+                        <a
+                          href={job.Link || "#"}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 px-4 py-2 bg-gradient-to-r from-blue-700 to-blue-500 hover:from-blue-600 hover:to-blue-700 text-white rounded-lg text-xl font-semibold shadow-md text-center"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          Apply Now
+                        </a>
+                        <a
+                          href={getWhatsappLink(job)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <img
+                            src="https://img.logo.dev/whatsapp.com?token=pk_djKZ3gIOQqyja8btgxBpBA"
+                            alt="WhatsApp"
+                            width={45}
+                            height={40}
+                            className="rounded-xl"
+                          />
+                          <div>
+                        </div>
+                        </a>
+                      </div>
                     </div>
 
                     {/* Desktop Layout - Side by side */}
@@ -203,7 +201,7 @@ Explore more at: https://stackbit.vercel.app`
 
                             {/* Bottom Section */}
                             <div className="flex items-center justify-between">
-                              <div className="text-xs text-gray-500">
+                              <div className="text-2xs text-gray-500">
                                 {job.Date_of_publish || "Few days left"}
                               </div>
                               <div className="flex items-center space-x-3">
@@ -220,7 +218,6 @@ Explore more at: https://stackbit.vercel.app`
                                   href={getWhatsappLink(job)}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  
                                   onClick={(e) => e.stopPropagation()}
                                 >
                                   <img
@@ -230,9 +227,7 @@ Explore more at: https://stackbit.vercel.app`
                                     height={40}
                                     className="rounded-xl"
                                   />
-                                  
                                 </a>
-
                               </div>
                             </div>
                           </div>
