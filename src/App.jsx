@@ -27,7 +27,6 @@ import pic2 from "./assets/pic2.png";
 import Science from './components/Science';
 import Stock from './components/Stock';
 import Hero from './components/Hero';
-import Ann from './components/Ann';
 import Job1 from './components/Job1';
 import Job2 from './components/Job2';
 import Job3 from './components/Job3';
