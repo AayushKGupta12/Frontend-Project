@@ -9,7 +9,7 @@ const Nav = () => {
   };
 
   const navItems = [
-  { name: 'Home', href: "http://localhost:5173/" },
+  { name: 'Home', href: "https://edstack.netlify.app" },
   { name: 'About', href: "https://edstack.onrender.com/about" },
   { name: 'Service', href: "https://edstack.onrender.com/service" },
   { name: 'Contact Us', href: 'https://edstack.onrender.com/contact' }
