@@ -1,6 +1,5 @@
 import './App.css';
 import { useState } from 'react';
-
 import Nav from './components/Nav';
 import Blog from './components/Blog';
 import Jobs from './components/Jobs';
@@ -71,8 +70,8 @@ function App() {
         {toggleButton("Jobs")}
         {toggleButton("Roadmap")}
         {toggleButton("News")}
-        {toggleButton("Ai-Resume")}
-        {toggleButton("Internship")}
+        {  /* {toggleButton("Ai-Resume")}
+              {toggleButton("Internship")}   */}
       </div>
 
 
@@ -137,6 +136,8 @@ function App() {
         </>
       )}
 
+      {/*  ##################3
+      
       {activeSection === "Ai-Resume" && (
         <div className="mx-6 my-10">
           <Soon />
@@ -148,6 +149,11 @@ function App() {
           <Soon />
         </div>
       )}
+      
+      
+            ###################    */}
+
+      
 
       {activeSection === "News" && (
         <>
