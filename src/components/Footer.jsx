@@ -56,6 +56,9 @@ export function Footer() {
             <p className="text-sm text-slate-800">
               ©{new Date().getFullYear()} <span className="text-emerald-900 font-medium">EdStack</span>. All rights reserved.
             </p>
+            <p className="text-sm text-slate-800">
+              <span className="text-emerald-900 font-medium">Built</span> by an <span className="text-emerald-900 font-medium">Engineer</span>. Trusted by <span className="text-emerald-900 font-medium">Engineers</span>.
+            </p>
            
           </div>
         </div>
