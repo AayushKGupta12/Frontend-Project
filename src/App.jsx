@@ -100,7 +100,7 @@ function App() {
 
       {activeSection === "Roadmap" && (
         <>
-        <div className='text-center text-amber-50 bg-emerald-700 font-semibold rounded-2xl p-2 mx-4 sm:mx-6 md:mx-6 text-base sm:text-lg md:text-xl'><span className='text-2xl font-bold text-gray-100'>Select The Road Map</span>
+        <div className='text-center text-amber-100 bg-gray-100 font-semibold rounded-2xl p-2 mx-4 sm:mx-6 md:mx-6 text-base sm:text-lg md:text-xl'><span className='text-2xl font-semibold text-gray-500'>Select The Road Map</span>
           {/* Horizontal scroll buttons */}
           <div className="my-2 mx-1.5">
             <div className="flex gap-2 overflow-x-auto scroll-hidden scrollbar-hide scroll-smooth px-2">
