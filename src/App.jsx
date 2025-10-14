@@ -28,8 +28,8 @@ import Stock from './components/Stock';
 import Hero from './components/Hero';
 import Job1 from './components/Job1';
 import Job2 from './components/Job2';
-import Job3 from './components/Job3';
-import Job4 from './components/Job4';
+// import Job3 from './components/Job3';
+// import Job4 from './components/Job4';
 
 function App() {
   const [activeSection, setActiveSection] = useState("Jobs");
@@ -70,8 +70,8 @@ function App() {
         {toggleButton("Jobs")}
         {toggleButton("Roadmap")}
         {toggleButton("News")}
-        {  /* {toggleButton("Ai-Resume")}
-              {toggleButton("Internship")}   */}
+        {toggleButton("Ai-Resume")}
+        {toggleButton("Internship")} 
       </div>
 
 
@@ -89,8 +89,11 @@ function App() {
             <Jobs/>
             <Job1/>
             <Job2/>
-            <Job3/>
-            <Job4/>
+            
+            {/*   <Job3/>
+                  <Job4/>   */}
+            
+            
           </div>
           
 
@@ -136,7 +139,6 @@ function App() {
         </>
       )}
 
-      {/*  ##################3
       
       {activeSection === "Ai-Resume" && (
         <div className="mx-6 my-10">
@@ -149,9 +151,6 @@ function App() {
           <Soon />
         </div>
       )}
-      
-      
-            ###################    */}
 
       
 
