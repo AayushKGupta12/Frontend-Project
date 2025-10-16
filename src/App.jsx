@@ -1,7 +1,6 @@
 import './App.css';
 import { useState } from 'react';
 import Nav from './components/Nav';
-import Blog from './components/Blog';
 import Jobs from './components/Jobs';
 import Newsapp from './components/ITnews';
 import Technology from './components/Technology';
@@ -21,15 +20,14 @@ import SoftwareEng from './components/SoftwareEng';
 import MobileApp from './components/MobileApp';
 import DatabaseAdmin from './components/DatabaseAdmin';
 import Footer from './components/Footer';
-import pic1 from "./assets/pic1.png";
-import pic2 from "./assets/pic2.png";
 import Science from './components/Science';
 import Stock from './components/Stock';
 import Hero from './components/Hero';
 import Job1 from './components/Job1';
 import Job2 from './components/Job2';
-// import Job3 from './components/Job3';
-// import Job4 from './components/Job4';
+import Job3 from './components/Job3';
+import Job4 from './components/Job4';
+import { Feat } from './components/Feat';
 
 function App() {
   const [activeSection, setActiveSection] = useState("Jobs");
@@ -64,6 +62,7 @@ function App() {
   return (
     <>
       <Nav />
+      <Hero/>
 
       {/* Toggle Bar */}
       <div className="flex flex-wrap justify-center my-5 gap-2">
@@ -71,7 +70,7 @@ function App() {
         {toggleButton("Roadmap")}
         {toggleButton("News")}
         {toggleButton("Ai-Resume")}
-        {toggleButton("Internship")} 
+        {toggleButton("Internship")}
       </div>
 
 
@@ -79,21 +78,16 @@ function App() {
       {activeSection === "Jobs" && (
         <div className="mx-2 my-8">
 
-          <Hero
-            src={pic1}
-            mobileSrc={pic2}
-            maxHeight="300px"
-          />
+          
+
+          {/* <Feat/> */}
           
           <div className='my-6'>
             <Jobs/>
             <Job1/>
             <Job2/>
-            
-            {/*   <Job3/>
-                  <Job4/>   */}
-            
-            
+            <Job3/>
+            <Job4/>
           </div>
           
 
@@ -103,7 +97,7 @@ function App() {
 
       {activeSection === "Roadmap" && (
         <>
-        <div className='text-center text-amber-100 bg-gray-100 font-semibold rounded-2xl p-2 mx-4 sm:mx-6 md:mx-6 text-base sm:text-lg md:text-xl'><span className='text-2xl font-semibold text-gray-500'>Select The Road Map</span>
+        <div className='text-center text-amber-50 bg-emerald-700 font-semibold rounded-2xl p-2 mx-4 sm:mx-6 md:mx-6 text-base sm:text-lg md:text-xl'><span className='text-2xl font-bold text-gray-100'>Select The Road Map</span>
           {/* Horizontal scroll buttons */}
           <div className="my-2 mx-1.5">
             <div className="flex gap-2 overflow-x-auto scroll-hidden scrollbar-hide scroll-smooth px-2">
@@ -139,7 +133,6 @@ function App() {
         </>
       )}
 
-      
       {activeSection === "Ai-Resume" && (
         <div className="mx-6 my-10">
           <Soon />
@@ -151,8 +144,6 @@ function App() {
           <Soon />
         </div>
       )}
-
-      
 
       {activeSection === "News" && (
         <>
