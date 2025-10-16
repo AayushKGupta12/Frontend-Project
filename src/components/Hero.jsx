@@ -3,9 +3,9 @@ import { useEffect, useRef, useState } from "react";
 
 const Hero = () => {
   return (
-    <section className="w-full px-8 py-12 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto">
+    <section className="w-full px-8 py-10 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto">
       <div>
-        <span className="block mb-4 text-2xl md:text-sm text-emerald-700 font-medium">
+        <span className="block mb-4 text-xl md:text-sm text-emerald-700 font-medium">
           Stalk Us Every Night
         </span>
         <h3 className="text-4xl md:text-6xl font-semibold">
