@@ -67,7 +67,7 @@ Explore more at: https://edstack.netlify.app`;
             <div className="mx-2 grid gap-4 sm:gap-6 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
               {jobs.map((job, index) => (
                 <div key={index} className="w-full">
-                  <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 overflow-hidden border border-gray-100">
+                  <div className="bg-white h-57 sm:h-50 md:h-[17rem] rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 overflow-hidden border border-gray-100">
                     {/* Mobile Layout - Stacked */}
                     <div className="block sm:hidden">
                       {/* Company Logo and Name */}
@@ -264,4 +264,5 @@ Explore more at: https://edstack.netlify.app`;
 }
 
 export default Job2;
+
 
