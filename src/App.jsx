@@ -27,7 +27,6 @@ import Job1 from './components/Job1';
 import Job2 from './components/Job2';
 import Job3 from './components/Job3';
 import Job4 from './components/Job4';
-import { Feat } from './components/Feat';
 
 function App() {
   const [activeSection, setActiveSection] = useState("Jobs");
