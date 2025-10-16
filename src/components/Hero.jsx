@@ -1,54 +1,154 @@
-import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
-export function Hero({ src, mobileSrc, alt = "Hero Image", maxHeight = "600px" }) {
-  const [scrollY, setScrollY] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    // Detect screen width for image source only
-    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  useEffect(() => {
-    // Always add scroll listener for height effect on all screen sizes
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const calculateHeight = () => {
-    const maxHeightNum = parseInt(maxHeight);
-    const minHeight = 100;
-    const scrollFactor = 0.8;
-    return Math.max(minHeight, maxHeightNum - scrollY * scrollFactor);
-  };
-
+const Hero = () => {
   return (
-    <div
-      className="px-4 w-full max-w-full rounded-4xl overflow-hidden relative transition-all duration-100 ease-out"
-      style={{
-        height: `${calculateHeight()}px`,
-        aspectRatio: "16 / 9",
-      }}
+    <section className="w-full px-8 py-12 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto">
+      <div>
+        <span className="block mb-4 text-2xl md:text-sm text-emerald-700 font-medium">
+          Stalk Every Us Night
+        </span>
+        <h3 className="text-4xl md:text-6xl font-semibold">
+          Let's change it up a bit
+        </h3>
+        <p className="text-base md:text-lg text-slate-700 my-4 md:my-6"> 
+          <p className="text-xl text-gray-600 mb-6">
+            Connecting you with <span className="text-xl font-bold mb-2 text-emerald-700">2800+ top Indian IT companies</span> and <span className="text-xl font-bold mb-2 text-emerald-700">4500+ job opportunities</span>, empowering <span className="text-xl font-bold mb-2 text-emerald-700">1250+ success stories</span> to achieve real milestones through our platform.
+          </p>
+        </p>
+
+        <a href="https://edstack.onrender.com/about">
+        <button className="bg-indigo-500 text-white font-medium py-2 px-4 rounded transition-all hover:bg-indigo-600 active:scale-95">
+          About-us
+        </button>
+        </a>
+      </div>
+      <ShuffleGrid />
+    </section>
+  );
+};
+
+const shuffle = (array) => {
+  let currentIndex = array.length,
+    randomIndex;
+
+  while (currentIndex != 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+
+  return array;
+};
+
+const generateSquares = (logoData) => {
+  return shuffle(logoData).map((sq) => (
+    <motion.div
+      key={sq.id}
+      layout
+      transition={{ duration: 1.5, type: "spring" }}
+      className="w-full h-full bg-white flex items-center justify-center p-4"
     >
-      <img
-        src={isMobile && mobileSrc ? mobileSrc : src}
-        alt={alt}
-        style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
+      <img 
+        src={sq.src} 
+        alt={sq.name}
+        className="max-w-full max-h-full object-contain"
+        onError={(e) => {
+          e.target.style.display = 'none';
+          e.target.parentElement.innerHTML = `<div class="text-gray-400 text-xs text-center">${sq.name}</div>`;
         }}
       />
+    </motion.div>
+  ));
+};
+
+const ShuffleGrid = () => {
+  const timeoutRef = useRef(null);
+  const [logoData, setLogoData] = useState([]);
+  const [squares, setSquares] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetchLogos();
+
+    return () => clearTimeout(timeoutRef.current);
+  }, []);
+
+  useEffect(() => {
+    if (logoData.length > 0) {
+      shuffleSquares();
+    }
+  }, [logoData]);
+
+  const fetchLogos = async () => {
+    try {
+      const response = await fetch('https://edstack.onrender.com/hero');
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch logos');
+      }
+
+      const data = await response.json();
+      
+      // Transform the backend data into the format needed for the grid
+      const transformedData = Object.entries(data).map(([name, info], index) => ({
+        id: index + 1,
+        name: name,
+        src: info.Logo
+      }));
+
+      setLogoData(transformedData);
+      setLoading(false);
+    } catch (err) {
+      console.error('Error fetching logos:', err);
+      setError(err.message);
+      setLoading(false);
+      
+      // Fallback to placeholder data if fetch fails
+      const fallbackData = Array.from({ length: 16 }, (_, i) => ({
+        id: i + 1,
+        name: `Company ${i + 1}`,
+        src: `https://via.placeholder.com/200x100?text=Company+${i + 1}`
+      }));
+      setLogoData(fallbackData);
+    }
+  };
+
+  const shuffleSquares = () => {
+    setSquares(generateSquares(logoData));
+    timeoutRef.current = setTimeout(shuffleSquares, 3000);
+  };
+
+  if (loading) {
+    return (
+      <div className="grid grid-cols-4 grid-rows-4 h-[450px] gap-1">
+        <div className="col-span-4 row-span-4 flex items-center justify-center text-gray-400">
+          " Hope this Website Finds You :D "
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="grid grid-cols-4 grid-rows-4 h-[450px] gap-1">
+        <div className="col-span-4 row-span-4 flex items-center justify-center text-red-400 text-sm text-center p-4">
+          Error loading logos. Using placeholder images.
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="grid grid-cols-4 grid-rows-4 h-[400px]">
+      {squares}
     </div>
   );
-}
+};
 
 export default Hero;
