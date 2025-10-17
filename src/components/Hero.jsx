@@ -87,7 +87,7 @@ const ShuffleGrid = () => {
 
   const fetchLogos = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/hero');
+      const response = await fetch('https://edstack.onrender.com/hero');
       
       if (!response.ok) {
         throw new Error('Failed to fetch logos');
