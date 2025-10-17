@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from 'react';
+
 import Nav from './components/Nav';
 import Jobs from './components/Jobs';
 import Newsapp from './components/ITnews';
@@ -27,23 +28,25 @@ import Job1 from './components/Job1';
 import Job2 from './components/Job2';
 import Job3 from './components/Job3';
 import Job4 from './components/Job4';
+import Test from './components/Test';
 
 function App() {
   const [activeSection, setActiveSection] = useState("Jobs");
   const [activeSection1, setActiveSection1] = useState("ML");
 
-  const toggleButton = (label) => (
-    <button
-      onClick={() => setActiveSection(label)}
-      className={`px-3 py-1.5 rounded-lg font-semibold transition-all border ${
-        activeSection === label
-          ? "bg-blue-100 text-blue-700 border-blue-300"
-          : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50"
-      }`}
-    >
-      {label}
-    </button>
-  );
+  const toggleButton = (label1) => (
+  <button
+    onClick={() => setActiveSection(label1)}
+    className={`flex items-center gap-2 text-sm font-medium px-5 py-2 rounded-xl shadow-md transition-all duration-200 border-2 ${
+      activeSection === label1
+        ? "bg-gray-600/20 border-gray-800"
+        : "bg-white border-gray-300 hover:bg-gray-400"
+    }`}
+  >
+    {label1}
+  </button>
+);
+
 
   const toggleButton1 = (label1) => (
     <button
@@ -60,6 +63,7 @@ function App() {
 
   return (
     <>
+      
       <Nav />
       <Hero/>
 
@@ -70,6 +74,7 @@ function App() {
         {toggleButton("News")}
         {toggleButton("Ai-Resume")}
         {toggleButton("Internship")}
+        {toggleButton("Hackathons")}
       </div>
 
 
@@ -85,18 +90,17 @@ function App() {
             <Jobs/>
             <Job1/>
             <Job2/>
-            <Job3/>
-            <Job4/>
+            {/*  <Job3/>
+                <Job4/>   */}
           </div>
-          
+          <Test/>
 
-          
         </div>
       )}
 
       {activeSection === "Roadmap" && (
         <>
-        <div className='text-center text-amber-50 bg-emerald-700 font-semibold rounded-2xl p-2 mx-4 sm:mx-6 md:mx-6 text-base sm:text-lg md:text-xl'><span className='text-2xl font-bold text-gray-100'>Select The Road Map</span>
+        <div className='text-center text-amber-50 bg-gray-500 font-semibold rounded-2xl p-2 mx-4 sm:mx-6 md:mx-6 text-base sm:text-lg md:text-xl'><span className='text-2xl font-bold text-gray-100'>Select The Road Map</span>
           {/* Horizontal scroll buttons */}
           <div className="my-2 mx-1.5">
             <div className="flex gap-2 overflow-x-auto scroll-hidden scrollbar-hide scroll-smooth px-2">
@@ -139,6 +143,12 @@ function App() {
       )}
 
       {activeSection === "Internship" && (
+        <div className="mx-6 my-10">
+          <Soon />
+        </div>
+      )}
+
+      {activeSection === "Hackathons" && (
         <div className="mx-6 my-10">
           <Soon />
         </div>
@@ -197,6 +207,9 @@ function App() {
 
         </>
       )}
+
+      
+
 
       <Footer/>
 
