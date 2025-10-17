@@ -9,7 +9,7 @@ const Hero = () => {
           Stalk Every Us Night
         </span>
         <h3 className="text-4xl md:text-6xl font-semibold">
-          Indias Largest <br/> {'{ IT Jobs Fair }'}
+          India's Largest <br/> {'{ IT Jobs Fair }'}
         </h3>
         <p className="text-base md:text-lg text-slate-700 my-4 md:my-6"> 
           <p className="text-xl text-gray-600 mb-6">
