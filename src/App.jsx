@@ -90,8 +90,10 @@ function App() {
             <Jobs/>
             <Job1/>
             <Job2/>
-            {/*  <Job3/>
-                <Job4/>   */}
+            <Job3/>
+            
+            {/*  <Job4/>  */}
+            
           </div>
           <Test/>
 
