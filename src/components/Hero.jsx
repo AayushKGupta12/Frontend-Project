@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import LiveUser from "./Liveuser";
+import LiveUser from "./LiveUser";
 
 const Hero = () => {
   return (
