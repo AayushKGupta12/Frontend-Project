@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import LiveUser from "./Liveuser";
 
 const Hero = () => {
   return (
@@ -17,11 +18,20 @@ const Hero = () => {
           </p>
         </p>
 
-        <a href="https://edstack.onrender.com/about">
-        <button className="bg-indigo-500 text-white font-medium py-2 px-4 rounded transition-all hover:bg-indigo-600 active:scale-95">
-          About-us
-        </button>
-        </a>
+        <div className="flex items-center ">  {/* Reduce gap from gap-2 or gap-4 down to gap-1 */}
+          <a href="https://edstack.onrender.com/about" className="inline-block">
+            <button className="bg-indigo-500 text-white font-medium py-2 px-4 rounded transition-all hover:bg-indigo-600 active:scale-95">
+              About-us
+            </button>
+          </a>
+          <LiveUser />
+        </div>
+
+
+        
+        
+
+        
       </div>
       <ShuffleGrid />
     </section>
@@ -87,7 +97,7 @@ const ShuffleGrid = () => {
 
   const fetchLogos = async () => {
     try {
-      const response = await fetch('https://edstack.onrender.com/hero');
+      const response = await fetch('http://127.0.0.1:5000/hero');
       
       if (!response.ok) {
         throw new Error('Failed to fetch logos');
