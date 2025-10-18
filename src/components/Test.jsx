@@ -142,7 +142,7 @@ export default function TestimonialsSection() {
       <div className="mb-8 text-center">
         <h3 className="text-3xl font-semibold text-gray-900">Join the community</h3>
         <p className="text-gray-500 mt-2 max-w-md mx-auto">
-          By developers, for developers
+          By a developers, for 7800+ developers across India
         </p>
               {/* Telegram Button */}
       <div className="flex justify-center mt-5 gap-6">
@@ -190,4 +190,5 @@ export default function TestimonialsSection() {
     </div>
   );
 }
+
 
